@@ -1,0 +1,31 @@
+{
+  "Events and Updates": {
+    "description": "Welcome to the Events and Updates page of the Clean Air Green Corridor (CAGC). Here, you can stay informed about the latest happenings, activities, and initiatives that are part of our mission to create a cleaner and greener neighborhood. We encourage community participation and aim to keep you updated on how you can get involved."
+  },
+  "Listing": [
+    {
+      "Recent Events": [
+        {
+          "Climate Action Day (November 19th)": "The focus of this months Climate Action Day is ♻️WASTE♻️, so our wonderful WHEELS Stew Crew leaders took it upon themselves to teach one of our third grade WHEELS classes and middle schoolers from I.S. 528 how to 💅beautify💅 our block! We collected almost 20lbs of waste during the two sessions 💪💪! And a special to NYCH2O for engaging our youth scientists in these great opportunities!"
+        },
+        {
+          "Community Clean-Up": "Participate in our clean-up event on [Date] to help maintain a cleaner environment. Bring your friends and family to make a tangible impact on our streets and parks."
+        },
+        {
+          "Educational Workshop": "Attend our workshop on [Date] to learn about sustainable practices and urban transformation. Gain insights from experts and discover how you can implement eco-friendly habits in your daily life."
+        }
+      ],
+      "Upcoming Events": [
+        {
+          "February 5": "Energy: Come join us on our second Climate Action Day to with our focus on energy in NYC!"
+        },
+        {
+          "Wednesday, April 9": "Come join us on our third Climate Action Day to with our focus on Health, Wellness, and Green Space in NYC!"
+        },
+        {
+          "Wednesday, May 21": "Come join us on our Fourth Climate Action Day to with our focus on Water in NYC!"
+        }
+      ]
+    }
+  ]
+}

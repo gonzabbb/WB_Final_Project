@@ -1,0 +1,24 @@
+{
+  "History & Accomplishments": {
+    "desc1": "The Clean Air Green Corridor (CAGC) began as a bold vision to transform the urban landscape of Washington Heights. Launched to address climate justice, this initiative empowers youth to reimagine 182nd Street as a green, sustainable community hub. The project started with grassroots organizing, quickly gaining momentum as students collaborated with local organizations to create inclusive green spaces. The CAGC has not only enhanced neighborhood air quality but also nurtured a sense of community pride.",
+    "desc2": "Through youth-led initiatives, the corridor now features improved air quality, native plant installations, and spaces for community gatherings. This replicable model serves as inspiration for other urban neighborhoods to prioritize climate justice and sustainability."
+  },
+  "Our Partners": {
+    "desc1": "The success of CAGC would not be possible without the support of our dedicated partners:",
+    "partners": [
+      { "name": "Future's Ignite", "link": "https://www.futuresignite.org" },
+      { "name": "New York Restoration Project (NYRP)", "link": "https://www.nyrp.org" },
+      { "name": "Washington Heights Expeditionary Learning School", "link": "https://www.wheelsnyc.org" },
+      { "name": "NYC H20", "link": "https://www.nych2o.org" },
+      { "name": "NYC Parks and Green Spaces Initiative", "link": "https://www.nycgovparks.org" }
+    ],
+    "desc2": "These partners have played a pivotal role in enhancing the project's impact by providing resources, expertise, and support in transforming 182nd Street into a vibrant green corridor."
+  },
+  "instagram": {
+    "image": {
+      "src": "https://cdn.glitch.global/e213384d-62bf-4b30-8f1f-d122d6237505/instagram-2016-logo-svgrepo-com.svg?v=1732315691275",
+      "alt": "Instagram",
+      "link": "https://www.instagram.com/cleanairgreencorridor/?hl=en"
+    }
+  }
+}
