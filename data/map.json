@@ -1,0 +1,41 @@
+{
+  "Interactive Community Map": {
+    "description": "Welcome to the CAGC Community Map! This tool is designed to engage our community members in actively participating in the transformation of our neighborhood. By using this map, you can contribute to our mission of creating a cleaner, greener, and more sustainable environment"
+  },
+  "Listing": [
+    {
+      "How The Map Works": [
+        {
+          "Adding Markers: ": "Users can place a marker on the map to indicate areas of interest or concerning in the neighborhood. This could include locations where you notice pollution, dangerous items, or clean improvements made in the neighborhood"
+        },
+        {
+          "Marker Details: ": "When placing a marker, you can add details, such as the type of observation, a brief description, and even upload an image to provide more context. We also implemented a way so that different icons are put in the area you wish to report on depending on the type of finding you have. For example, if you find a clean improvement being made in the neighborhood, then it will put a smiley face on the map!"
+        }
+      ],
+      "Intended use of the Map": [
+        {
+          "Identify problem areas: ": "Highlight locations that need attention, such as areas with high pollution or lack of green spaces"
+        },
+        {
+          "Celebrate Successes: ": "Showcase successful projects and green spaces that have been developed through community efforts"
+        },
+        {
+          "Plan Community Actions": "Use the map to organize clean-up events, tree planting, or other community activities by identifying strategic locations"
+        }
+      ],
+      "How the Map Helps the Community": [
+        {
+          "Community Engagement: ": "Encourages residents to take an active role in improving their environment by providing a visual and interactive way to report and address issues"
+        },
+        {
+          "Data Collection: ": "Helps CAGC gather valuable data on environmental conditions and community needs, which can be used to inform future projects and initiatives"
+        },
+        {
+          "Awareness and Education: ": "Increases awareness about environmental issues and educates the community on the importance of sustainable practices and urban transformation"
+        },
+        {
+          "": "Join us in using this map to make a positive impact on our community. Together, we can identify opportunities for improvement and celebrate our successes in creating a healthier, more sustainable neighborhood"
+        }
+      ]
+    }
+  ]}
