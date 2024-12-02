@@ -1,4 +1,4 @@
-Green Air Green Corridor (CAGC) Community Engagement Website
+Clean Air Green Corridor (CAGC) Community Engagement Website
 
 Overview
 
@@ -6,7 +6,7 @@ Many schools in Washington Heights face challenges stemming from obstacles in th
 
 Glass, litter, and needles scattered in public spaces.
 Safety and security concerns impacting students' well-being.
-The Green Air Green Corridor (CAGC) is an initiative aimed at creating a green space connecting multiple schools in the area. This program provides students with a safe environment where they can come together and embrace the positive aspects of their community.
+The Clean Air Green Corridor (CAGC) is an initiative aimed at creating a green space connecting multiple schools in the area. This program provides students with a safe environment where they can come together and embrace the positive aspects of their community.
 
 Mission
 
