@@ -12,7 +12,7 @@ if (typeof L === "undefined") {
   // Thermal map overlay from OpenWeatherMap
   var thermalOverlay = L.tileLayer(
     "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=75e7d2c526fc36b3fba92f03d3564b1f",
-    { opacity: 1 } // Set opacity and ensure it overlays on top
+    { opacity: 1 }
   );
 
   // Add layer control for toggling thermal overlay
@@ -22,48 +22,19 @@ if (typeof L === "undefined") {
 
   L.control.layers(null, overlays).addTo(map);
 
-  // Add legend for thermal map
-  var thermalLegend = L.control({ position: "bottomright" });
-
-  thermalLegend.onAdd = function () {
-    var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += "<h4>Thermal Map</h4>";
-
-    // Add the thermal map legend as an image
-    div.innerHTML += `<img src="https://cdn.glitch.global/e213384d-62bf-4b30-8f1f-d122d6237505/Screenshot%202024-10-31%20at%2011.08.07%E2%80%AFPM.png?v=1730430502574" 
-                    alt="Thermal Map Legend" style="width: auto; max-width: 200px; height: auto;" />`;
-
-    return div;
-  };
-
-  thermalLegend.addTo(map);
-
-  // Define the coordinates for the polygon
+  // Define polygon coordinates
   var polygonCoordinates = [
-    [40.85045, -73.9348],
-    [40.85059, -73.9347],
+    [40.8507, -73.935371],
+    [40.850818, -73.935328],
     [40.84878, -73.93036],
     [40.8486, -73.93048],
   ];
 
-  // Create the polygon
   var diagonalPolygon = L.polygon(polygonCoordinates, {
     color: "purple",
     weight: 2,
     fill: true,
   }).addTo(map);
-
-  // Tooltip for the polygon
-  var tooltip = L.tooltip({ permanent: false, direction: "top" });
-  diagonalPolygon.on("mouseover", function (e) {
-    tooltip
-      .setContent("Clean Air Green Corridor")
-      .setLatLng(e.latlng)
-      .addTo(map);
-  });
-  diagonalPolygon.on("mouseout", function () {
-    map.removeLayer(tooltip);
-  });
 
   var polygonBounds = L.latLngBounds(polygonCoordinates);
 
@@ -78,7 +49,7 @@ if (typeof L === "undefined") {
         marker.date,
         marker.description,
         marker.image,
-        false // Prevent saving again on load
+        false
       );
     });
   }
@@ -125,8 +96,6 @@ if (typeof L === "undefined") {
       if (description === null) return;
 
       const addImage = confirm("Would you like to add an image of the litter?");
-      let image = null;
-
       if (addImage) {
         const imageInput = document.createElement("input");
         imageInput.type = "file";
@@ -136,15 +105,22 @@ if (typeof L === "undefined") {
           if (file) {
             const reader = new FileReader();
             reader.onload = function (e) {
-              image = e.target.result;
-              addMarker(lat, lng, markerType, date, description, image);
+              resizeImage(e.target.result, 400, 400) // Resize to 400x400px
+                .then((resizedImage) => {
+                  addMarker(lat, lng, markerType, date, description, resizedImage);
+                })
+                .catch((error) => {
+                  console.error("Image processing failed:", error);
+                  alert("Failed to process the image. Marker will be saved without it.");
+                  addMarker(lat, lng, markerType, date, description, null);
+                });
             };
             reader.readAsDataURL(file);
           }
         });
         imageInput.click();
       } else {
-        addMarker(lat, lng, markerType, date, description, image);
+        addMarker(lat, lng, markerType, date, description, null);
       }
     } else {
       alert("Markers can only be added inside the Focus area of the CAGC.");
@@ -196,55 +172,41 @@ if (typeof L === "undefined") {
     });
   }
 
+  // Function to resize an image to a specific dimension and return a Base64 string
+  function resizeImage(base64Image, maxWidth, maxHeight) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // Calculate the new dimensions while maintaining aspect ratio
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > maxWidth) {
+            height = (height * maxWidth) / width;
+            width = maxWidth;
+          }
+        } else {
+          if (height > maxHeight) {
+            width = (width * maxHeight) / height;
+            height = maxHeight;
+          }
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+
+        ctx.drawImage(img, 0, 0, width, height);
+
+        resolve(canvas.toDataURL("image/jpeg", 0.7)); // Compress the image (70% quality)
+      };
+      img.onerror = reject;
+      img.src = base64Image;
+    });
+  }
+
   loadMarkers();
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  fetch('../data/map.json')
-  .then(response => response.json())
-  .then(jsonData => renderListing(jsonData))
-  .catch(error => console.error('Error loading JSON:', error));
-
-  function renderListing(json) {
-    const listingContainer = document.querySelector("main.Listing");
-
-    if (!listingContainer) {
-      console.error("Container with class 'Listing' not found.");
-      return;
-    }
-
-    // Render the main description
-    const mapDescription = json["Interactive Community Map"].description;
-    const descriptionEl = document.createElement("p");
-    descriptionEl.textContent = mapDescription;
-    descriptionEl.style.padding = "10px"; // Add 10px padding
-    listingContainer.appendChild(descriptionEl);
-
-    // Process the "Listing" section
-    json.Listing.forEach((listingItem) => {
-      for (const sectionTitle in listingItem) {
-        // Create section header
-        const sectionHeader = document.createElement("h3");
-        sectionHeader.textContent = sectionTitle;
-        sectionHeader.style.padding = "10px"; // Add 10px padding
-        listingContainer.appendChild(sectionHeader);
-
-        // Iterate through each subsection
-        const subsections = listingItem[sectionTitle];
-        const ul = document.createElement("ul"); // Create a bullet point list
-        subsections.forEach((subsection) => {
-          for (const key in subsection) {
-            const li = document.createElement("li");
-            li.innerHTML = `<strong>${key}</strong> ${subsection[key]}`; // Bold the key and show content
-            li.style.padding = "10px"; // Add 10px padding
-            ul.appendChild(li);
-          }
-        });
-        listingContainer.appendChild(ul);
-      }
-    });
-}
-
-
-  
-});
