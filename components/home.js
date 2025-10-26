@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Fetch and render the Introduction and Listing content from home.json
-  fetch('../data/home.json') 
+  fetch('./data/home.json') 
     .then(response => response.json())
     .then(data => {
       // Create and append Introduction section

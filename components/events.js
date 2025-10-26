@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Fetch and render the Events and Updates content from events.json
-  fetch('../data/events.json')
+  fetch('./data/events.json')
     .then(response => response.json())
     .then(data => {
       // Create and append Introduction section

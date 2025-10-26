@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(style);
 
   // Fetch the JSON file
-  fetch('../data/about.json')
+  fetch('./data/about.json')
     .then(response => response.json())
     .then(data => {
       // Create the main container

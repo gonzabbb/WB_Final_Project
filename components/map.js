@@ -200,7 +200,7 @@ if (typeof L === "undefined") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("../data/map.json")
+  fetch("./data/map.json")
     .then((response) => response.json())
     .then((jsonData) => renderListing(jsonData))
     .catch((error) => console.error("Error loading JSON:", error));
